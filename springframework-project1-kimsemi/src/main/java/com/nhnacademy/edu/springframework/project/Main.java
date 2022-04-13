@@ -8,7 +8,7 @@ import com.nhnacademy.edu.springframework.project.service.StudentService;
 import java.util.Collection;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class JavaConfigMain {
+public class Main {
     public static void main(String[] args) {
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
             "com.nhnacademy.edu.springframework")) {
