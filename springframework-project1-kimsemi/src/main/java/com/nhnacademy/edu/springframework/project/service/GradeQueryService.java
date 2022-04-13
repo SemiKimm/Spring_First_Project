@@ -1,6 +1,6 @@
 package com.nhnacademy.edu.springframework.project.service;
 
-import com.nhnacademy.edu.springframework.project.repository.Score;
+import com.nhnacademy.edu.springframework.project.domain.Score;
 
 import java.util.List;
 

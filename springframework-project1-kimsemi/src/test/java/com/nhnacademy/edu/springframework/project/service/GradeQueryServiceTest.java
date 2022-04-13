@@ -2,7 +2,7 @@ package com.nhnacademy.edu.springframework.project.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.nhnacademy.edu.springframework.project.repository.Score;
+import com.nhnacademy.edu.springframework.project.domain.Score;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;

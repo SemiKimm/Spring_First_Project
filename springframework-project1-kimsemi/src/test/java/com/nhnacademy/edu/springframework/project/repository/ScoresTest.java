@@ -3,6 +3,7 @@ package com.nhnacademy.edu.springframework.project.repository;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+import com.nhnacademy.edu.springframework.project.domain.Score;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

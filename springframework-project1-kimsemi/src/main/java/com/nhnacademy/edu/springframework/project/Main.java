@@ -1,11 +1,11 @@
 package com.nhnacademy.edu.springframework.project;
 
-import com.nhnacademy.edu.springframework.project.repository.Score;
+import com.nhnacademy.edu.springframework.project.domain.Score;
 import com.nhnacademy.edu.springframework.project.service.CsvDataLoadService;
 import com.nhnacademy.edu.springframework.project.service.DataLoadService;
 import com.nhnacademy.edu.springframework.project.service.DefaultGradeQueryService;
 import com.nhnacademy.edu.springframework.project.service.DefaultStudentService;
-import com.nhnacademy.edu.springframework.project.service.Student;
+import com.nhnacademy.edu.springframework.project.domain.Student;
 
 import java.util.Collection;
 

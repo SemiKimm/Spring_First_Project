@@ -1,6 +1,4 @@
-package com.nhnacademy.edu.springframework.project.service;
-
-import com.nhnacademy.edu.springframework.project.repository.Score;
+package com.nhnacademy.edu.springframework.project.domain;
 
 public class Student{
     private final int seq;

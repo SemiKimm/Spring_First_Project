@@ -1,4 +1,4 @@
-package com.nhnacademy.edu.springframework.project.repository;
+package com.nhnacademy.edu.springframework.project.domain;
 
 import java.util.Objects;
 

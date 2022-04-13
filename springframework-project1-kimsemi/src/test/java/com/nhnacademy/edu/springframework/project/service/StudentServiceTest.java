@@ -3,15 +3,11 @@ package com.nhnacademy.edu.springframework.project.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-import com.nhnacademy.edu.springframework.project.repository.CsvScores;
-import com.nhnacademy.edu.springframework.project.repository.CsvStudents;
-import com.nhnacademy.edu.springframework.project.repository.Score;
-import com.nhnacademy.edu.springframework.project.repository.Scores;
-import com.nhnacademy.edu.springframework.project.repository.Students;
+import com.nhnacademy.edu.springframework.project.domain.Student;
+import com.nhnacademy.edu.springframework.project.domain.Score;
 import java.util.Collection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.csv.Csv;
 
 class StudentServiceTest {
     StudentService defaultStudentService;
