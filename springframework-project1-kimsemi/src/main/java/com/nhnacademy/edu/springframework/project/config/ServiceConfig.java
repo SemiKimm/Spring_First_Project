@@ -21,8 +21,8 @@ public class ServiceConfig {
     }
 
     @Bean
-    public StudentService defaultStudentService(){
-        return new DefaultStudentService();
+    public StudentService defaultStudentService(Students students){
+        return new DefaultStudentService(students);
     }
 
     @Bean

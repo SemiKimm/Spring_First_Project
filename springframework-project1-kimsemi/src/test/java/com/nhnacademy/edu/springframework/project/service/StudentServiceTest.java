@@ -14,7 +14,7 @@ class StudentServiceTest {
 
     @BeforeEach
     void setUp() {
-        defaultStudentService = new DefaultStudentService();
+//        defaultStudentService = new DefaultStudentService();
     }
 
     @Test
