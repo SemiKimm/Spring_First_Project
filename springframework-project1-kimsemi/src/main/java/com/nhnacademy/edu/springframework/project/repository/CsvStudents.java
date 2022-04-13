@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 
-/** TODO 3(완료&검토요망) - load() 가 되는중에 다른 메소드가 실행되는 경우의 예외 발생 처리를 해결하지 못했습니다..
+/** TODO 3(완료) :
  * load 를 제외한 메소드 실행시
  * 데이터 로드가 완료되지 않으면 IllegalStateException 이 발생해야 한다.
  **/
@@ -31,11 +31,11 @@ public class CsvStudents implements Students {
     // TODO 6(완료) : student.csv 파일에서 데이터를 읽어 students 에 추가하는 로직을 구현하세요.
     @Override
     public void load() {
-        try (FileInputStream studentFileIn = new FileInputStream(
-            "D:\\NHN_Academy\\lectureSpring\\day2\\project1\\src\\main\\resources\\data\\student.csv")) {
-            BufferedReader br = new BufferedReader(new InputStreamReader(studentFileIn));
+        try (BufferedReader studentFileReader = new BufferedReader
+            (new InputStreamReader(Objects.requireNonNull(
+                getClass().getClassLoader().getResourceAsStream("data/student.csv"))))) {
             String l;
-            while((l=br.readLine())!=null){
+            while((l=studentFileReader.readLine())!=null){
                 int commaIndex = l.indexOf(",");
                 int seq = Integer.parseInt(l.substring(0,commaIndex));
                 String name = l.substring(commaIndex+1);

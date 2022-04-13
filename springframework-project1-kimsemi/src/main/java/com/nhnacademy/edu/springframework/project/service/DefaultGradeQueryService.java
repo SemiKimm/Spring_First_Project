@@ -32,9 +32,8 @@ public class DefaultGradeQueryService implements GradeQueryService {
         Scores scoreRepository = CsvScores.getInstance();
         Collection<Score> scores = scoreRepository.findAll();
         // TODO 6(완료) : 학생 번호로 점수를 반환합니다.
-        List<Score> result = scores.stream()
+        return scores.stream()
             .filter((score) -> score.getStudentSeq() == seq)
-            .collect(Collectors.toList());
-        return result.get(0);
+            .findFirst().orElse(null);
     }
 }
