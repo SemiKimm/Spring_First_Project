@@ -1,6 +1,5 @@
 package com.nhnacademy.edu.springframework.project.aspect;
 
-import java.util.logging.Logger;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
