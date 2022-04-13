@@ -16,8 +16,12 @@
     <logger name="com.nhnacademy.edu.springframework" level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="com.nhnacademy.edu.springframework.singleton.JavaConfigMain" level="INFO">
+    <logger name="com.nhnacademy.edu.springframework.project.Main" level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.nhnacademy.edu.springframework.project.aspect.LoggingAspect" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </logger>
     <!-- turn OFF all logging (children can override) -->
     <root level="INFO">
