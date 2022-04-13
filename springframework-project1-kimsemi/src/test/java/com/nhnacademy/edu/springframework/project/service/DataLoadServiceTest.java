@@ -10,7 +10,7 @@ class DataLoadServiceTest {
 
     @BeforeEach
     void setUp() {
-        csvDataLoadService = new CsvDataLoadService();
+//        csvDataLoadService = new CsvDataLoadService();
     }
 
     @Test
