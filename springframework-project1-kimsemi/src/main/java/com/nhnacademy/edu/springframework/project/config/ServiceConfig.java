@@ -26,7 +26,7 @@ public class ServiceConfig {
     }
 
     @Bean
-    public GradeQueryService defaultGradeQueryService(){
-        return new DefaultGradeQueryService();
+    public GradeQueryService defaultGradeQueryService(Students students, Scores scores){
+        return new DefaultGradeQueryService(students, scores);
     }
 }

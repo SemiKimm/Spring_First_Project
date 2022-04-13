@@ -19,7 +19,7 @@ class GradeQueryServiceTest {
 
     @BeforeEach
     void setUp() {
-        defaultGradeQueryService = new DefaultGradeQueryService();
+//        defaultGradeQueryService = new DefaultGradeQueryService();
     }
 
     @Test
