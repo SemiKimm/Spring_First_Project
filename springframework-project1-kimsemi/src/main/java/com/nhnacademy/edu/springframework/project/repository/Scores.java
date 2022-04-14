@@ -7,4 +7,6 @@ public interface Scores {
     void load();
 
     List<Score> findAll();
+
+    boolean isLoaded();
 }
