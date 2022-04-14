@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 
 /** TODO 3(완료) :
@@ -18,14 +20,9 @@ import java.util.*;
  * TODO 7(완료) :
  * singleton 클래스를 만드세요.
  */
+@Component
 public class CsvStudents implements Students {
-    private static final Students INSTANCE = new CsvStudents();
-
     private final Map<Integer,Student> students = new HashMap<>();
-
-    public static Students getInstance() {
-        return INSTANCE;
-    }
 
     // TODO 6(완료) : student.csv 파일에서 데이터를 읽어 students 에 추가하는 로직을 구현하세요.
     @Override

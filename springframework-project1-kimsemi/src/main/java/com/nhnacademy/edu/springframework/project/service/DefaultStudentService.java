@@ -1,8 +1,6 @@
 package com.nhnacademy.edu.springframework.project.service;
 
-import com.nhnacademy.edu.springframework.project.annotation.StudentsCsv;
 import com.nhnacademy.edu.springframework.project.domain.Student;
-import com.nhnacademy.edu.springframework.project.repository.CsvStudents;
 import com.nhnacademy.edu.springframework.project.repository.Students;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -13,9 +11,8 @@ import org.springframework.stereotype.Service;
 public class DefaultStudentService implements StudentService {
     private final Students studentRepository;
 
-    @Autowired
     public DefaultStudentService(
-        @StudentsCsv Students studentRepository) {
+        Students studentRepository) {
         this.studentRepository = studentRepository;
     }
 

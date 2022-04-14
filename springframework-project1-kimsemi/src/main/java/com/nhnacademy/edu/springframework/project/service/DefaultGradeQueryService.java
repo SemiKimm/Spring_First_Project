@@ -1,7 +1,5 @@
 package com.nhnacademy.edu.springframework.project.service;
 
-import com.nhnacademy.edu.springframework.project.annotation.ScoresCsv;
-import com.nhnacademy.edu.springframework.project.annotation.StudentsCsv;
 import com.nhnacademy.edu.springframework.project.domain.Score;
 import com.nhnacademy.edu.springframework.project.domain.Student;
 import com.nhnacademy.edu.springframework.project.repository.Scores;
@@ -9,7 +7,6 @@ import com.nhnacademy.edu.springframework.project.repository.Students;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,9 +14,8 @@ public class DefaultGradeQueryService implements GradeQueryService {
     private final Students studentRepository;
     private final Scores scoreRepository;
 
-    @Autowired
     public DefaultGradeQueryService(
-        @StudentsCsv Students studentRepository, @ScoresCsv Scores scoreRepository) {
+        Students studentRepository, Scores scoreRepository) {
         this.studentRepository = studentRepository;
         this.scoreRepository = scoreRepository;
     }

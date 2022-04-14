@@ -12,7 +12,7 @@ import org.springframework.util.StopWatch;
 @Component
 public class LoggingAspect {
     private static final Log log = LogFactory.getLog(LoggingAspect.class);
-    @Around("within(com.nhnacademy.edu.springframework.project.service..*)")
+    @Around("execution(public * *(..))")
     public Object logSendMessage(ProceedingJoinPoint ptj) throws Throwable{
         StopWatch stopWatch = new StopWatch();
         try{
@@ -20,7 +20,6 @@ public class LoggingAspect {
             return ptj.proceed();
         }finally {
             stopWatch.stop();
-            System.out.println(ptj.getSignature()+":"+stopWatch.prettyPrint());
             log.info(ptj.getSignature()+":"+stopWatch.prettyPrint());
         }
     }
