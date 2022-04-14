@@ -34,7 +34,6 @@ class StudentsTest {
         assertDoesNotThrow(() -> csvStudents.load());
     }
 
-    @DisplayName("load() 했을때 csvStudents.findAll() 해서 나온 result는 비어있지 않다.")
     @Test
     void load_resultIsNotEmpty() {
         csvStudents.load();
@@ -45,20 +44,10 @@ class StudentsTest {
 
     @Test
     void findAll() {
-        int size = 0;
-        try (BufferedReader studentFileReader = new BufferedReader
-            (new InputStreamReader(Objects.requireNonNull(
-                getClass().getClassLoader().getResourceAsStream("data/student.csv"))))) {
-            while (studentFileReader.readLine() != null) {
-                size++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         csvStudents.load();
         Collection<Student> result = csvStudents.findAll();
 
-        assertThat(result.size()).isEqualTo(size);
+        assertThat(result.size()).isEqualTo(3);
     }
 
     @Test

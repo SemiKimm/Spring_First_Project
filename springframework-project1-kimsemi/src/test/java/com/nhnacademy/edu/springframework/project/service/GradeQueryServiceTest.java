@@ -39,7 +39,13 @@ class GradeQueryServiceTest {
 
     @Test
     void getScoreByStudentName() {
-        Map<Integer, Score> scores = getScoresFromTestCsv();
+        Map<Integer, Score> scores = new HashMap<>();
+        Score score1 = new Score(1, 30);
+        Score score2 = new Score(2, 80);
+        Score score3 = new Score(3, 70);
+        scores.put(1,score1);
+        scores.put(2,score2);
+        scores.put(3,score3);
 
         String name = "A";
         List<Score> result = defaultGradeQueryService.getScoreByStudentName(name);
@@ -53,32 +59,17 @@ class GradeQueryServiceTest {
 
     @Test
     void getScoreByStudentSeq() {
-        Map<Integer, Score> scores = getScoresFromTestCsv();
+        Map<Integer, Score> scores = new HashMap<>();
+        Score score1 = new Score(1, 30);
+        Score score2 = new Score(2, 80);
+        Score score3 = new Score(3, 70);
+        scores.put(1,score1);
+        scores.put(2,score2);
+        scores.put(3,score3);
 
         int seq = 1;
         Score result = defaultGradeQueryService.getScoreByStudentSeq(seq);
 
         assertThat(result.equals(scores.get(result.getStudentSeq()))).isTrue();
-    }
-
-    Map<Integer,Score> getScoresFromTestCsv(){
-        String path = "src/test/resources/data/score.csv";
-        File file = new File(path);
-        Map<Integer, Score> scores = new HashMap<>();
-        try (FileInputStream fileInputStream = new FileInputStream(file);
-             BufferedReader bufferedReader
-                 = new BufferedReader(new InputStreamReader(fileInputStream))) {
-            String l;
-            int commaIndex;
-            while ((l = bufferedReader.readLine()) != null) {
-                commaIndex = l.indexOf(",");
-                scores.put(Integer.parseInt(l.substring(0, commaIndex)),
-                    new Score(Integer.parseInt(l.substring(0, commaIndex)),
-                        Integer.parseInt(l.substring(commaIndex + 1))));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return scores;
     }
 }
