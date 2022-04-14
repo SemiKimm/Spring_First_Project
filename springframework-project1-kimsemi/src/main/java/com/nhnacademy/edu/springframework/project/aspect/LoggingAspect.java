@@ -12,15 +12,16 @@ import org.springframework.util.StopWatch;
 @Component
 public class LoggingAspect {
     private static final Log log = LogFactory.getLog(LoggingAspect.class);
+
     @Around("execution(public * *(..))")
-    public Object logSendMessage(ProceedingJoinPoint ptj) throws Throwable{
+    public Object logSendMessage(ProceedingJoinPoint ptj) throws Throwable {
         StopWatch stopWatch = new StopWatch();
-        try{
+        try {
             stopWatch.start();
             return ptj.proceed();
-        }finally {
+        } finally {
             stopWatch.stop();
-            log.info(ptj.getSignature()+":"+stopWatch.prettyPrint());
+            log.info(ptj.getSignature() + ":" + stopWatch.prettyPrint());
         }
     }
 }

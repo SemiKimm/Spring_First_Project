@@ -7,10 +7,13 @@ import com.nhnacademy.edu.springframework.project.service.GradeQueryService;
 import com.nhnacademy.edu.springframework.project.domain.Student;
 import com.nhnacademy.edu.springframework.project.service.StudentService;
 import java.util.Collection;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
+        Log log = LogFactory.getLog(Main.class);
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
             SpringConfig.class)) {
             DataLoadService dataLoadService =
@@ -20,15 +23,15 @@ public class Main {
             StudentService studentService = context.getBean("defaultStudentService",
                 StudentService.class);
             Collection<Student> passedStudents = studentService.getPassedStudents();
-            System.out.println(passedStudents);
+            log.info(passedStudents);
             Collection<Student> orderedStudents = studentService.getStudentsOrderByScore();
-            System.out.println(orderedStudents);
+            log.info(orderedStudents);
 
             GradeQueryService queryService = context.getBean("defaultGradeQueryService", GradeQueryService.class);
             Collection<Score> scores = queryService.getScoreByStudentName("A");
-            System.out.println(scores);
+            log.info(scores);
             Score score = queryService.getScoreByStudentSeq(5);
-            System.out.println(score);
+            log.info(score);
         }
     }
 }

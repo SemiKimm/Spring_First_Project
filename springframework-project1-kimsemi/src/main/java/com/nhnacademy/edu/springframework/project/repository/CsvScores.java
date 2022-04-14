@@ -7,8 +7,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 /**
  * TODO 2 : (완료)
@@ -18,7 +19,8 @@ import org.springframework.stereotype.Repository;
 @Component
 public class CsvScores implements Scores {
     private final List<Score> scores = new ArrayList<>();
-    private boolean isLoaded = false;
+    private boolean loaded = false;
+    Log log = LogFactory.getLog(CsvScores.class);
 
     // TODO 5(완료) : score.csv 파일에서 데이터를 읽어 scores 에 추가하는 로직을 구현하세요.
     @Override
@@ -36,7 +38,7 @@ public class CsvScores implements Scores {
             }
             setLoaded(true);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
     }
 
@@ -49,10 +51,10 @@ public class CsvScores implements Scores {
     }
 
     public void setLoaded(boolean loaded) {
-        isLoaded = loaded;
+        this.loaded = loaded;
     }
 
     public boolean isLoaded() {
-        return isLoaded;
+        return loaded;
     }
 }
