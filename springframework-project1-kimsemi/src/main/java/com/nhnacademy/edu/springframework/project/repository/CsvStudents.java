@@ -23,6 +23,7 @@ import org.springframework.stereotype.Repository;
 @Component
 public class CsvStudents implements Students {
     private final Map<Integer,Student> students = new HashMap<>();
+    private boolean isLoaded = false;
 
     // TODO 6(완료) : student.csv 파일에서 데이터를 읽어 students 에 추가하는 로직을 구현하세요.
     @Override
@@ -38,6 +39,8 @@ public class CsvStudents implements Students {
                 Student student = new Student(seq,name);
                 students.put(seq,student);
             }
+            setLoaded(true);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,7 +48,7 @@ public class CsvStudents implements Students {
 
     @Override
     public Collection<Student> findAll() {
-        if(students.isEmpty()){
+        if(!isLoaded()){
             throw new IllegalStateException("데이터 로드가 완료되지 않았습니다.");
         }
         return this.students.values();
@@ -57,12 +60,20 @@ public class CsvStudents implements Students {
      */
     @Override
     public void merge(Collection<Score> scores) {
-        if(students.isEmpty()){
+        if(!isLoaded()){
             throw new IllegalStateException("데이터 로드가 완료되지 않았습니다.");
         }
         for(Score score:scores){
             Student student = students.get(score.getStudentSeq());
             student.setScore(score);
         }
+    }
+
+    public void setLoaded(boolean loaded) {
+        this.isLoaded = loaded;
+    }
+
+    public boolean isLoaded() {
+        return isLoaded;
     }
 }

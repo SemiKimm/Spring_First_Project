@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 @Component
 public class CsvScores implements Scores {
     private final List<Score> scores = new ArrayList<>();
+    private boolean isLoaded = false;
 
     // TODO 5(완료) : score.csv 파일에서 데이터를 읽어 scores 에 추가하는 로직을 구현하세요.
     @Override
@@ -33,6 +34,7 @@ public class CsvScores implements Scores {
                 Score studentScore = new Score(studentSeq, score);
                 this.scores.add(studentScore);
             }
+            setLoaded(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,9 +42,17 @@ public class CsvScores implements Scores {
 
     @Override
     public List<Score> findAll() {
-        if (scores.isEmpty()) {
+        if (!isLoaded()) {
             throw new IllegalStateException("데이터 로드가 완료되지 않았습니다.");
         }
         return this.scores;
+    }
+
+    public void setLoaded(boolean loaded) {
+        isLoaded = loaded;
+    }
+
+    public boolean isLoaded() {
+        return isLoaded;
     }
 }
